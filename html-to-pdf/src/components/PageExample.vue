@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page" id="pagePdf">
     <h1 class="page__title">Pagina Ejemplo para PDF</h1>
     <p class="page__resume">Aqui convertimos este HTML en un PDF</p>
     <div class="page__content">
@@ -29,20 +29,25 @@
     </div>
   </div>
   <div class="actions">
-    <button class="actions__btn">Descargar Html2Pdf</button>
+    <button class="actions__btn" @click="generarPdf()">Descargar Html2Pdf</button>
     <button class="actions__btn green">Descargar jspdf</button>
   </div>
 </template>
 
 <script setup>
+  import { convertHtmlPdf } from '../utils/convertHtmlPdf.js'
 
+  const generarPdf = () => {
+    convertHtmlPdf('pagePdf')
+  }
 </script>
 
 <style lang="scss" scoped>
 .page {
   border: 1px solid;
-  width: 100%;
   padding: 10px;
+  width: 700px;
+  margin: 2em;
   &__content {
     display: flex;
     justify-content: center;
