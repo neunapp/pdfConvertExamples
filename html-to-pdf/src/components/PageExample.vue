@@ -30,15 +30,20 @@
   </div>
   <div class="actions">
     <button class="actions__btn" @click="generarPdf()">Descargar Html2Pdf</button>
-    <button class="actions__btn green">Descargar jspdf</button>
+    <button class="actions__btn green" @click="convertirPdf()" >Descargar jspdf</button>
   </div>
 </template>
 
 <script setup>
   import { convertHtmlPdf } from '../utils/convertHtmlPdf.js'
+  import { convertPDF } from '../utils/convertjsPdf.js'
 
   const generarPdf = () => {
     convertHtmlPdf('pagePdf')
+  }
+
+  const convertirPdf = () => {
+    convertPDF('pagePdf')
   }
 </script>
 
@@ -46,7 +51,6 @@
 .page {
   border: 1px solid;
   padding: 10px;
-  width: 700px;
   margin: 2em;
   &__content {
     display: flex;
